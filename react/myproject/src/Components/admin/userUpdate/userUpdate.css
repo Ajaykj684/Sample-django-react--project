@@ -1,0 +1,80 @@
+.newdiv{
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 182, 0.61);
+}
+.image{
+   padding-left: 0rem;
+}
+.hedd{
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+   
+   
+}
+
+.iimg{
+    display: flex;
+    justify-content: center;
+}
+.txt{
+    color: aliceblue;
+    padding-top:15%;
+    padding-left:15%;
+}
+
+.login{
+    color: rgb(233, 233, 233);
+    padding-left: 7.5rem;
+    font-size: 14px;
+}
+.box{
+
+    width: 21rem;
+    height: 30rem;
+    background-color: rgba(216, 236, 253, 0.089);
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+
+}
+
+.inner{
+    width:100%;
+    height: 40px;
+    margin: 20px;
+   
+
+}
+.input{
+    width:280px;
+    height: 40px;
+    margin-top: 10px;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    outline-color: transparent;
+    border-radius: 10px;
+ }
+ .Butn{
+    width:280px;
+    height:40px;
+    margin-top: 35px;
+    background-color: blue;
+    color: white;
+    border-radius: 20px;
+ }
+ .textt{
+    font-size: 13px;
+    color: rgb(255, 255, 255);
+    padding-top: 10px;
+    padding-left: 90px;
+ }

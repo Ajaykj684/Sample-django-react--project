@@ -1,0 +1,31 @@
+body{
+    margin: 0%;
+}
+.childd{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1.2rem;
+}
+
+.Parent{
+    width:100%;
+    height: 80px;
+    color: white;
+    background-color: rgb(160, 9, 47);
+}
+.head{
+    margin-left: 1rem;
+}
+
+.buttn{
+    margin-right: 3rem;
+    
+}
+
+.buttnA{
+    margin-right: 3rem;
+   
+    color: white;
+    text-decoration: none;
+    
+}

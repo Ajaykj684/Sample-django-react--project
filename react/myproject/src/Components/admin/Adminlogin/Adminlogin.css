@@ -1,0 +1,67 @@
+.main{
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://cutewallpaper.org/21/gaming-walpaper/49-Gaming-Wallpapers-1920x1080+-Album-on-Imgur.jpg');
+}
+.img{
+    display: flex;
+    justify-content: center;
+}
+.image1{
+   padding-left: 0;
+}
+
+.txttt{
+    color: rgb(243, 243, 243);
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.bx{
+
+    width: 21rem;
+    height: 22rem;
+    background: rgba(0, 0, 0, 0.171);
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+
+}
+
+.innerr{
+    width:100%;
+    height: 40px;
+    margin: 20px;
+   
+
+}
+.inputt{
+    width:280px;
+    height: 40px;
+    margin-top: 10px;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    outline-color: transparent;
+    border-radius: 10px;
+ }
+ .Butnn{
+    width:280px;
+    height:40px;
+    margin-top: 35px;
+    background-color: blue;
+    color: white;
+    border-radius: 20px;
+ }
+ .text{
+    font-size: 13px;
+    color: black;
+    padding-left: 90px;
+ }

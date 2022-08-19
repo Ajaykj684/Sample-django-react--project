@@ -2,7 +2,7 @@ import React,{useState,useContext} from 'react'
 import './Signup.css'
 import Logo from '../logo.png'
 import {useNavigate} from 'react-router-dom'
-import Axios from 'axios';
+
 import AuthContext from '../../context/AuthContext'
 
 
@@ -15,52 +15,28 @@ export default function Signup() {
 
   const history = useNavigate();
   let {signupUser } = useContext(AuthContext)
+  let {err} = useContext(AuthContext)
 
-
-// const formdata=(e)=>{
-//     e.preventDefault();
-  
-  // Axios({
-  //     method: 'post',
-  //     url: "http://127.0.0.1:8000/signup/",
-  //     data: {
-  //       username:username,
-  //       email:email,
-  //       password:password,
-  //       phone:phone,
-  //     },
-  //     headers: {
-      
-  //       "content-type": "application/json"
-  //     }
-  //   }).then((response)=>{
-        
-  //     if(response.status === 200 ){
-  //       history('/')
-  //     }else{
-  //       alert('something went wrong !')
-  //     }
-  //   })
-  //   }
-  
 
   return (
     <div className='maindiv'>
       <div className='heds'>
-      <h2 className='txxtt'>SignUp </h2>
+     
       </div>
     <div className='box'>
       <div className='iimg'>
             <img  className="image" width="100px" height="100px" src={Logo}></img>
       </div>
-
+      <div className='err'> {err} </div>
       <div className='inner'>
+    
         <form  onSubmit={signupUser} >
         <input className='input' type="text" 
             value={username} 
             onChange={(e)=>setUsername(e.target.value)}
             id="fname"
             name="username"
+            required
           placeholder='Name..'>
         </input>
         <input className='input' type="email"
@@ -68,6 +44,7 @@ export default function Signup() {
             onChange={(e)=>setEmail(e.target.value)}
             id="email"
             name='email'
+            required
             placeholder='Email..'>
          </input>
         <input className='input' type="password" 
@@ -75,6 +52,7 @@ export default function Signup() {
             onChange={(e)=>setPassword(e.target.value)}
             id="password"
             name='password'
+            required
             placeholder='Password..'>
 
         </input>

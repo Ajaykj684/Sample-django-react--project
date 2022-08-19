@@ -6,7 +6,6 @@ from newapp.serialize import AccountSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from rest_framework.response import Response
 from rest_framework.decorators import api_view,permission_classes
 from rest_framework.permissions import IsAuthenticated ,IsAdminUser
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
@@ -21,9 +20,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
         token['username'] = user.username
         token['is_admin'] = user.is_admin
-       
-
-
+        
         return token
 
 class MyTokenObtainPairView(TokenObtainPairView):
@@ -105,10 +102,7 @@ class DetailsAdd(APIView):
         username=body['username']
         password=body['password']
         phone=body['phone']
-        print(password,"pas4444")
-        
-
-
+       
         user = Account.objects.create_user(email=email,username=username,password=password ,phone=phone,first_name="none",last_name="none")
         user.save()
         
@@ -131,6 +125,6 @@ class DetailsSignup(APIView):
         phone=body['phone']
        
         user = Account.objects.create_user(email=email,username=username,password=password ,phone=phone,first_name="none",last_name="none")
-        user.save()
+        
         
         return Response (200)

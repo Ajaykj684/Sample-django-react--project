@@ -8,22 +8,24 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   
   let {loginUser } = useContext(AuthContext)
-
+  let {err} = useContext(AuthContext)
   const history = useNavigate();
 
-  
 
-
-  
   return (
    <div className='maindiv'>
+    
     <div class="hed">
      <h3 className='txet'>Login   Here !!</h3>
      </div>
     <div className='boxv'>
+      
     <div className="img1">
     <img  className="imae" width="100px" height="100px" src={Logo}></img>
     </div>
+
+    <div className='err'> {err} </div>
+    
       <div className='inner'>
         <form onSubmit={loginUser}>
         <input className='input'

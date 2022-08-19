@@ -10,6 +10,7 @@ function Adminlogin() {
  
   let {loginAdmin,user } = useContext(AuthContext)
   const history = useNavigate()
+  let {err} = useContext(AuthContext)
 
   useEffect(()=>{
     user ? user.is_admin === true && history('/admin'):history('/adminlogin')
@@ -26,7 +27,7 @@ function Adminlogin() {
         <div className="img">
         <img  className="image1" width="100px" height="100px" src={Logos}></img>
         </div>
-        {/* {error && <Erromessage>{error}</Erromessage>} */}
+         <div className='err'> {err} </div>
       <div className='innerr'>
         <form onSubmit={loginAdmin} >
         <input className='inputt' 

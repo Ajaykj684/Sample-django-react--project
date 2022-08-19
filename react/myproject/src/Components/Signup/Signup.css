@@ -78,3 +78,8 @@
     padding-top: 10px;
     padding-left: 39rem;
  }
+
+ .err{
+    color: orange;
+    margin-left: 4rem;
+ }

@@ -16,7 +16,7 @@ export const AuthProvider = ({children}) => {
     let [authTokens,setAuthTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
     let [user,setUser] = useState(()=> localStorage.getItem('authTokens') ? jwtDecode(localStorage.getItem('authTokens')) : null)
     let [loading,setLoading] = useState(true)
-    const [error,setError]=useState(false)
+    let [err,setError]=useState(" ")
     const [id,setid]=useState({})
 
     
@@ -45,7 +45,8 @@ export const AuthProvider = ({children}) => {
             Navigate('/')
 
         }else{
-            alert('something went wrong !')
+            setError('something went wrong !')
+           
         }
 
     }  
@@ -55,7 +56,7 @@ export const AuthProvider = ({children}) => {
     let signupUser = async (e)=>{
 
         e.preventDefault()
-     
+
         let response = await fetch('http://127.0.0.1:8000/signup/', {
             method:'POST',
             headers:{
@@ -72,42 +73,10 @@ export const AuthProvider = ({children}) => {
             Navigate('/login')
 
         }else{
-            alert('something went wrong !')
+            setError('something went wrong !')
         }
 
     }  
-
-
-
-
-    let updateUser = async (e)=>{
-
-        e.preventDefault()
-     
-        let response = await fetch('http://127.0.0.1:8000/update/', {
-            method:'POST',
-            headers:{
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body:JSON.stringify({'username':e.target.username.value,'phone':e.target.phone.value,'email':e.target.email.value, 'password':e.target.password.value})
-        })
-        let data = await response.json()
-        
-        
-        if(response.status === 200){
-            
-            Navigate('/login')
-
-        }else{
-            alert('something went wrong !')
-        }
-
-    }  
-
-
-
-
 
 
     
@@ -165,7 +134,7 @@ export const AuthProvider = ({children}) => {
 
         }else{
           
-                setError(error.response.data.message)
+            setError('something went wrong !')    
              
         }
 
@@ -206,7 +175,7 @@ export const AuthProvider = ({children}) => {
             Navigate('/admin')
 
         }else{
-            alert('something went wrong !')
+            setError('something went wrong !')
         }
 
     } 
@@ -217,21 +186,16 @@ export const AuthProvider = ({children}) => {
     let contextData = {
         user:user,
         authTokens:authTokens,
+        err:err,
         loginUser:loginUser,
         logoutUser:logoutUser,
         loginAdmin:loginAdmin,
         logoutAdmin:logoutAdmin,
         userAdd:userAdd,
-        error:error,
+        
         signupUser:signupUser
 
     }
-
-
-
-
-
-
 
 
 

@@ -23,8 +23,6 @@ function Adminhome() {
         user ? user.is_admin === true && history('/admin'):history('/adminlogin')
       },[])
     
-
-      
       
       const handleDelete = (id) => {
         
@@ -59,30 +57,8 @@ function Adminhome() {
         }
 
 
-      // const handleUpdate = (id) => {
-        
-      //     Axios.get(`http://127.0.0.1:8000`)
-      //         .then((res) => {
-      //             setUpdate(res.data.filter(value => {
-      //                 return value.id === id
-      //             }));
-      //             console.log(update,"lll")
-                
-      //         }).catch(() => {
-      //             alert("Something went wrong");
-      //         })
-      //         return(
-      //           <div>
-      //             <userUpdate data={update}/>
-      //           </div>
-      //       );
-      //     }
-
 
        
-
-    
-
   return (
    
    <div className='row'>     

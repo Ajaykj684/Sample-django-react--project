@@ -11,27 +11,43 @@ export default function Signup() {
   console.log(id)
   let [val,setValue]=useState([]);
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+ 
 
   useEffect(()=>{
     Axios.get(`http://127.0.0.1:8000/update/${id}`).then((res)=>setValue(res.data))
   },[])
-  console.log(val,"99999999999999999")
 
 
-  //  const handleUpdate = (id) => {
+
+
+  let updateUser = async (e)=>{
+
+    e.preventDefault()
+ 
+    let response = await fetch(`http://127.0.0.1:8000/update/${id}`, {
+        method:'POST',
+        headers:{
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({'username':e.target.username.value,'phone':e.target.phone.value,'email':e.target.email.value, 'password':e.target.password.value})
+    })
+    let data = await response.json()
+    
+    
+    if(response.status === 200){
         
-  //         Axios.get(`http://127.0.0.1:8000`)
-  //             .then((res) => {
-  //                 setUpdate(res.data.filter(value => {
-  //                     return value.id === id
-  //                 }));
-  //                 console.log(update,"lll")
-                
-  //             }).catch(() => {
-  //                 alert("Something went wrong");
-  //             })
-              
-  //         }
+        Navigate('/login')
+
+    }else{
+        setError('something went wrong !')
+    }
+
+}  
+
 
 
   return (
@@ -41,18 +57,21 @@ export default function Signup() {
     
 
       <div className='inner'>
-        <form >
+        <form>
         <input className='input' type="text" 
             
-            name="username"
+          name="username"
           value={val.username}
+          onChange={(e)=>setValue(e.target.value)}
           placeholder="username">
         </input>
         <input className='input' type="email"
             
             name='email'
             value={val.email}
+            onChange={(e)=>setValue(e.target.value)}
             placeholder="email">
+              
          </input>
         {/* <input className='input' type="password" 
            
@@ -64,9 +83,10 @@ export default function Signup() {
         <input className='input' type="number"
            name='phone'
            value={val.phone}
-            placeholder='phone'>
+           onChange={(e)=>setValue(e.target.value)}
+           placeholder='phone'>
          </input>
-        <button className='Butn'>Submit</button>
+        <button className='Butn' onClick={()=>{updateUser(id)}} >Submit</button>
        
         <h6 onClick={()=>{history('/admin')}} className='login'>Back</h6>
 
